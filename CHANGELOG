@@ -1,0 +1,11 @@
+CHANGELOG
+=========
+
+2007-08-22  Sylvain Halle <sylvain@leduotang.com>
+ - Added "clear database" functionality
+ - Book year no longer mandatory
+ - Fixed MySQL update delay when adding a book
+ - Seller identifier automatically converted to uppercase
+
+2006-08-30  Sylvain Halle <sylvain@leduotang.com>
+ - Initial version

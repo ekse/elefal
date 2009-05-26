@@ -1,0 +1,155 @@
+/****
+ Three-column layout that works identically (to the pixel!)
+ in both Firefox and IE 6.
+ Slightly modified from Petr Stanicek's layout available at:
+ http://www.pixy.cz/blogg/clanky/css-3col-layout/
+ Use it at will! -- Sylvain Halle
+****/
+
+body {
+  margin:0; padding:0;
+  background: white url("w.png") top left repeat-y;
+  font:11pt Arial, sans-serif;
+}
+
+#header {
+  margin:0; padding:0;
+  height:102px;
+  background:yellow url('n.png');
+}
+
+#main1 {
+  margin:0; padding:0;
+  background:white url("w.png") top left repeat-y;
+}
+#main2 {
+  margin:0; padding:0;
+}
+#left {
+  float:left;
+  width:36px;
+  margin:0; padding:0;
+  background:url("corner.gif") top right no-repeat;
+}
+#right {
+  float:right;
+  width:36px;
+  margin:0; padding:0;
+  background:url("corner.gif") top right no-repeat;
+}
+#middle {
+  margin:0 36px;
+  background:white;
+}
+.column-in {
+  margin:0; padding:0.5em 1em;
+}
+.cleaner {
+  clear:both;
+  height:0px;
+  font-size:1px;
+  border:none;
+  margin:0; padding:0;
+  background:transparent;
+}
+/** Added SH **/
+#header-left {
+  float: left;
+  height: 102px;
+  width: 287px;
+  background-image: url('nw.png');
+}
+
+#navigation {
+  margin-left: 50px;
+}
+
+#footer {
+  margin-left: 36px;
+}
+
+/** Redefines the size of all headers since IE displays them
+ bigger than Mozilla by default **/
+h1 {font-size: 200%;}
+h2 {font-size: 155%;}
+h3 {font-size: 125%;}
+h4 {font-size: 100%;}
+
+/* Cute links */
+a, a:active {
+  color: #116;
+}
+a:hover, a:visited:hover {
+  color: #888;
+}
+a:visited {
+  color: #611;
+}
+
+.rightalign {
+  text-align: right;
+}
+
+span.instock {
+  color: green;
+}
+
+span.expected, span.lost, span.sold, span.notset {
+  color: red;
+}
+
+span.returned {
+  color: darkblue;
+}
+
+#book-checklist {
+  border: solid;
+}
+
+#book-checklist td {
+  border: solid;
+  padding: 5pt;
+  border-width: 1px;
+}
+
+span.booktitle {
+  font-style: italic;
+}
+
+#bookbrowse {
+  border: solid;
+}
+
+#bookbrowse td {
+  padding: 5pt;
+}
+
+.bookbrowse-header {
+  background-color: lightgrey;
+  font-weight: bold;
+}
+
+.bookbrowse-data-0 {
+  background-color: #fff;
+}
+
+.bookbrowse-data-0 {
+  background-color: #eef;
+}
+
+.printonly {
+  position: absolute;
+  height: 0px;
+  width: 0px;
+  font-size: 0px;
+  left: -1000cm;
+  top: -1000cm;
+}
+
+.noprint {
+  visibility: visible;
+}
+
+#footer {
+  font-size: 75%;
+}

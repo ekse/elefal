@@ -1,0 +1,76 @@
+/****
+ Three-column layout that works identically (to the pixel!)
+ in both Firefox and IE 6.
+ Slightly modified from Petr Stanicek's layout available at:
+ http://www.pixy.cz/blogg/clanky/css-3col-layout/
+ Use it at will! -- Sylvain Halle
+****/
+
+body {
+  background: white;
+  font:10pt Arial, sans-serif;
+}
+
+#navigation, #navigation-title, .noprint {
+  position: absolute;
+  top: -1000cm;
+  left: -1000cm;
+  font-size: 0px;
+  height: 0px;
+  width: 0px;
+  visibility: hidden;
+}
+
+#footer {
+  font-size: 7pt;
+}
+
+/** Redefines the size of all headers since IE displays them
+ bigger than Mozilla by default **/
+h1 {font-size: 200%;}
+h2 {font-size: 155%;}
+h3 {font-size: 125%;}
+h4 {font-size: 100%;}
+
+/* Cute links */
+a, a:active {
+  color: black;
+}
+
+.rightalign {
+  text-align: right;
+}
+
+#book-checklist {
+  border: solid;
+}
+
+#book-checklist td {
+  border: solid;
+  padding: 5pt;
+  border-width: 1px;
+}
+
+span.booktitle {
+  font-style: italic;
+}
+
+#bookbrowse {
+  border: solid;
+}
+
+#bookbrowse td {
+  border: solid 1px lightgrey;
+}
+
+.bookbrowse-header {
+  font-weight: bold;
+}
+
+.bookbrowse-data-0 {
+  border-bottom: solid 1px;
+}
+
+.bookbrowse-data-1 {
+  border-bottom: solid 1px;
+}

@@ -1,0 +1,4 @@
+TODO
+
+- Check for garbage GET fields that propagate in other pages
+- Basic check for wrong params in forms (eg empty seller id)

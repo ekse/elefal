@@ -1,0 +1,57 @@
+<?php
+/******************************************************************************
+  eleFAL, a used-book selling management tool
+  Copyright (C) 2006  Sylvain Hallé
+  
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public License
+  as published by the Free Software Foundation; either version 2
+  of the License, or (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, 
+  MA  02110-1301, USA.
+******************************************************************************/
+
+/**
+ * Global options
+ */
+$config["appname"]      = "eleFAL";     // Displayed application name
+$config["lang"]         = "fr";         // Interface language
+
+/**
+ * Inclusion of language settings
+ */
+include_once("lang/".$config["lang"].".php");
+
+/**
+ * MySQL server configuration
+ */
+$config["ddDBHost"]     = "localhost";  // Host name or IP address for MySQL
+                                        // server
+$config["ddDBUser"]     = "root";       // User name in the server
+$config["ddDBPassword"] = "banane";     // User password
+$config["ddDBName"]     = "elefal";     // Database name (default: "elefal")
+$config["ddDBMode"]     = "mysqli";     // Database connection mode ("mysql" or
+                                        // "mysqli" (PHP >5)
+$config["ddDBPrefix"]   = "elefal_";    // Prefix for tables used by the system
+
+/**
+ * Basic access control (to be replaced with something else later)
+ */
+$config["adminlogin"]   = "admin";
+$config["adminpassword"]= "admin";
+
+/**
+ * Other constants
+ */
+// Nothing at the moment
+//define("PTL_SUBCATEGORY_CHAR", "/");      // Subcategory delimiter
+//define("PTL_CSV_SEPARATOR", "\t");        // Column separator for CSV output
+?>
