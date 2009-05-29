@@ -36,7 +36,7 @@ include_once("lang/".$config["lang"].".php");
 $config["ddDBHost"]     = "localhost";  // Host name or IP address for MySQL
                                         // server
 $config["ddDBUser"]     = "root";       // User name in the server
-$config["ddDBPassword"] = "banane";     // User password
+$config["ddDBPassword"] = "password";   // User password
 $config["ddDBName"]     = "elefal";     // Database name (default: "elefal")
 $config["ddDBMode"]     = "mysqli";     // Database connection mode ("mysql" or
                                         // "mysqli" (PHP >5)
