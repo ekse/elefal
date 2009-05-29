@@ -22,9 +22,9 @@
 /**
  * Global options
  */
-$config["appname"]      = "eleFAL";     // Displayed application name
-$config["lang"]         = "fr";         // Interface language
-
+$config["appname"]      = "eleFAL";       // Displayed application name
+$config["lang"]         = "fr";           // Interface language
+$config["hostname"]     = "hostname.com"; // Hostname of the server
 /**
  * Inclusion of language settings
  */
@@ -38,7 +38,7 @@ $config["ddDBHost"]     = "localhost";  // Host name or IP address for MySQL
 $config["ddDBUser"]     = "root";       // User name in the server
 $config["ddDBPassword"] = "password";   // User password
 $config["ddDBName"]     = "elefal";     // Database name (default: "elefal")
-$config["ddDBMode"]     = "mysqli";     // Database connection mode ("mysql" or
+$config["ddDBMode"]     = "mysql";      // Database connection mode ("mysql" or
                                         // "mysqli" (PHP >5)
 $config["ddDBPrefix"]   = "elefal_";    // Prefix for tables used by the system
 

@@ -43,7 +43,7 @@ $timeout = 600;
 
 // URL to redirect if no session or session is timed out.  NOTE: URL must be
 // absolute, and not relative!
-$redirect = "http://localhost/eleFAL/index.php";
+$redirect = "http://".$config['hostname']."/elefal/index.php";
 
 // Checks if a session exists
 if (!isset($_SESSION["sessionid"]) || (isset($_SESSION["lastclick"]) && time() - $_SESSION["lastclick"] > $timeout))
