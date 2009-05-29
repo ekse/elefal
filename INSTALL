@@ -1,0 +1,6 @@
+INSTRUCTIONS D'INSTALLATION
+
+1 Créer la base de données mysql "elefal"
+2 Créer le schema à l'aide du fichier install/elefal.sql
+3 Créer le fichier config.inc.php à partir de install/config.inc.php.TEMPLATE
+4 Modifier les informations dans config.inc.php
