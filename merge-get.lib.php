@@ -35,24 +35,13 @@ function mergeGetData($getarray, $localarray)
 {
   $out = "";
   $ampersand = "&amp;";
-  foreach($getarray as $key => $value)
-  {
-    if (!isset($localarray[$key]))
-    {
-      if ($localarray[$key] != "")
-        $out .= $key."=".$localarray[$key].$ampersand;
-    }
-    else
-    {
-      if ($value != "")
+  foreach($getarray as $key => $value) {
+    if (!isset($localarray[$key]) && $value != "") {
         $out .= $key."=".$value.$ampersand;
     }
   }
-  foreach($localarray as $key => $value)
-  {
-    if (isset($getarray[$key]))
-    {
-      if ($value != "")
+  foreach($localarray as $key => $value) {
+    if ($value != "") {
         $out .= $key."=".$value.$ampersand;
     }
   }

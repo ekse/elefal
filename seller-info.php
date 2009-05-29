@@ -28,15 +28,9 @@ require_once("encode-decode.lib.php");
 require_once("merge-get.lib.php");
 require_once("session.lib.php");
 
-// Override default language settings by session settings
-if ($_SESSION["lang"])
-  include_once("lang/".$_SESSION["lang"].".php");
+include_once("lang.inc.php");
 
-// Override default language settings by URL settings
-if ($_GET["lang"])
-  include_once("lang/".$_GET["lang"].".php");
-
-// Connects to the database
+// Connect to the database
 $db = db_connect();
 if (is_null($db))
 {
@@ -67,14 +61,8 @@ $answer = db_fetch_assoc_array($result);
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-  <meta name="robots" content="noindex,nofollow"/>
-  <link rel="stylesheet" type="text/css" href="styles/<?php echo $_GET["style"]; ?>/style.css" title="Current style"/>
-  <link rel="shortcut icon" type="image/x-icon" href="styles/icone.ico"/>
-  <!-- Alternate stylesheets -->
-  <link rel="alternate stylesheet" type="text/css" href="styles/printer-friendly/style.css" title="Printer friendly"/>
-  <!-- End of alternate stylesheets -->
-  <title>
+<?php include("stylesheet.inc.php");?>
+<title>
   <?php echo $lang["Seller information"]; ?> - <?php echo $config["appname"]; ?>
   </title>
 </head>
@@ -128,7 +116,10 @@ $answer = db_fetch_assoc_array($result);
 <?php
 // Get ordering criterion if specified
 $sortstring = "ORDER BY ";
-switch ($_GET["sort"])
+
+$sort_by = isset($_GET["sort"]) ? $_GET["sort"] : "";
+
+switch ($sort_by)
 {
   case "author":
     $sortstring .= "author";
@@ -228,7 +219,7 @@ while ($answer = db_fetch_assoc_array($result))
 } }
 ?>
       </table>
-      <?php if ($_GET["show"] != "instock") { ?>
+      <?php if (!isset($_GET["show"]) || $_GET["show"] != "instock") { ?>
       <p>
       <?php echo $lang["Total to be refunded to seller:"]; ?>
       <?php echo $total_price; ?>&nbsp;<?php echo $lang["CURRENCY"]; ?>

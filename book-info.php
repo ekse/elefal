@@ -28,13 +28,8 @@ require_once("encode-decode.lib.php");
 require_once("merge-get.lib.php");
 require_once("session.lib.php");
 
-// Override default language settings by session settings
-if ($_SESSION["lang"])
-  include_once("lang/".$_SESSION["lang"].".php");
-
-// Override default language settings by URL settings
-if ($_GET["lang"])
-  include_once("lang/".$_GET["lang"].".php");
+// Set Language
+include_once("lang.inc.php");
 
 // Connects to the database
 $db = db_connect();
@@ -58,16 +53,10 @@ $answer = db_fetch_assoc_array($result);
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-  <meta name="robots" content="noindex,nofollow"/>
-  <link rel="stylesheet" type="text/css" href="styles/<?php echo $_GET["style"]; ?>/style.css" title="Current style"/>
-  <link rel="shortcut icon" type="image/x-icon" href="styles/icone.ico"/>
-  <!-- Alternate stylesheets -->
-  <link rel="alternate stylesheet" type="text/css" href="styles/printer-friendly/style.css" title="Printer friendly"/>
-  <!-- End of alternate stylesheets -->
-  <title>
-  <?php echo $lang["Book information"]; ?> - <?php echo $config["appname"]; ?>
-  </title>
+<?php include("stylesheet.inc.php"); ?>  
+<title>
+<?php echo $lang["Book information"]; ?> - <?php echo $config["appname"]; ?>
+</title>
 </head>
 <body>
 <div id="underbody">
