@@ -37,7 +37,7 @@ function mergeGetData($getarray, $localarray)
   $ampersand = "&amp;";
   foreach($getarray as $key => $value)
   {
-    if (!is_null($localarray[$key]))
+    if (!isset($localarray[$key]))
     {
       if ($localarray[$key] != "")
         $out .= $key."=".$localarray[$key].$ampersand;
@@ -50,7 +50,7 @@ function mergeGetData($getarray, $localarray)
   }
   foreach($localarray as $key => $value)
   {
-    if (is_null($getarray[$key]))
+    if (isset($getarray[$key]))
     {
       if ($value != "")
         $out .= $key."=".$value.$ampersand;
@@ -79,6 +79,8 @@ function mergeGetUrlData($getarray, $url)
   if (!isset($urlparts[1])) {
     return $urlpage;
   }
+  $urlparams = explode($get_sep, $urlparts[1]);
+  
   // Separates each part into parameter-value tuples
   $localarray = array();
   foreach($urlparams as $tuple)

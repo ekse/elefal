@@ -27,13 +27,8 @@ require_once("db-connection.lib.php");
 require_once("merge-get.lib.php");
 require_once("session.lib.php");
 
-// Override default language settings by session settings
-if ($_SESSION["lang"])
-  include_once("lang/".$_SESSION["lang"].".php");
-
-// Override default language settings by URL settings
-if ($_GET["lang"])
-  include_once("lang/".$_GET["lang"].".php");
+// Set language 
+include_once("lang.inc.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -41,7 +36,7 @@ if ($_GET["lang"])
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
   <meta name="robots" content="noindex,nofollow"/>
-  <link rel="stylesheet" type="text/css" href="styles/<?php echo $_GET["style"]; ?>/style.css" title="Current style"/>
+  <link rel="stylesheet" type="text/css" href="styles/<?php echo isset($_GET["style"]) ? $_GET["style"]."/" : ""; ?>style.css" title="Current style"/>
   <link rel="shortcut icon" type="image/x-icon" href="styles/icone.ico"/>
   <!-- Alternate stylesheets -->
   <link rel="alternate stylesheet" type="text/css" href="styles/printer-friendly/style.css" title="Printer friendly"/>
@@ -128,21 +123,7 @@ if ($_GET["lang"])
 </div>
 </div>
 
-<!-- Page footer -->
-<div id="footer">
-  <div id="footer-left"></div>
-  <div id="footer-right"></div>
-  <hr id="hr-footer"/>
-  <div id="footer-text-left">
-    <?php echo $lang["CREDITS"]; ?>
-    <?php echo $lang["Last modified:"]; ?> 2007-08-22.
-    <a href="<?php echo mergeGetUrlData($_GET, "?style=printer-friendly"); ?>"><?php echo $lang["Printer-friendly version"]; ?></a> <?php echo $lang["of this page"]; ?>.
-    <a href="<?php echo (mergeGetUrlData($_GET, "?style=") != "") ? mergeGetUrlData($_GET, "?style=") : "?style="; ?>"><?php echo $lang["Default style version"]; ?></a> <?php echo $lang["of this page"]; ?>.
-  </div>
-  <div id="footer-text-right">
-  <!-- Nothing here -->
-  </div>
-</div>
+<?php include_once("footer.inc.php"); ?>
 
 </div>
 </body>
