@@ -28,11 +28,11 @@ require_once("merge-get.lib.php");
 require_once("session.lib.php");
 
 // Override default language settings by session settings
-if ($_SESSION["lang"])
+if (isset($_SESSION["lang"]))
   include_once("lang/".$_SESSION["lang"].".php");
 
 // Override default language settings by URL settings
-if ($_GET["lang"])
+if (isset($_GET["lang"]))
   include_once("lang/".$_GET["lang"].".php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -41,7 +41,7 @@ if ($_GET["lang"])
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
   <meta name="robots" content="noindex,nofollow"/>
-  <link rel="stylesheet" type="text/css" href="styles/<?php echo $_GET["style"]; ?>/style.css" title="Current style"/>
+  <link rel="stylesheet" type="text/css" href="styles/<?php if(isset($_GET["style"])) echo $_GET["style"]."/"; ?>style.css" title="Current style"/>
   <link rel="shortcut icon" type="image/x-icon" href="styles/icone.ico"/>
   <!-- Alternate stylesheets -->
   <link rel="alternate stylesheet" type="text/css" href="styles/printer-friendly/style.css" title="Printer friendly"/>

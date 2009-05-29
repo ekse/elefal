@@ -76,8 +76,9 @@ function mergeGetUrlData($getarray, $url)
   // Parses URL
   $urlparts = explode($page_sep, $url);
   $urlpage = $urlparts[0];
-  $urlparams = explode($get_sep, $urlparts[1]);
-  
+  if (!isset($urlparts[1])) {
+    return $urlpage;
+  }
   // Separates each part into parameter-value tuples
   $localarray = array();
   foreach($urlparams as $tuple)
