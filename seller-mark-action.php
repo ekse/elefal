@@ -1,7 +1,7 @@
-<?
+<?php
 /******************************************************************************
   eleFAL, a used-book selling management tool
-  Copyright (C) 2006  Sylvain Hallé
+  Copyright (C) 2006  Sylvain HallÃ©
   
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public License
@@ -28,13 +28,8 @@ require_once("encode-decode.lib.php");
 require_once("merge-get.lib.php");
 require_once("session.lib.php");
 
-// Override default language settings by session settings
-if ($_SESSION["lang"])
-  include_once("lang/".$_SESSION["lang"].".php");
-
-// Override default language settings by URL settings
-if ($_GET["lang"])
-  include_once("lang/".$_GET["lang"].".php");
+// Set language
+include_once("lang.inc.php");
 
 // Connects to the database
 $db = db_connect();
@@ -62,6 +57,6 @@ $query_string = "UPDATE ".$config["ddDBPrefix"]."books SET "
 $result = db_query($db, $query_string);
 
 // Redirects to seller information page
-header ("Location: ".mergeGetUrlData($_GET, "seller-info.php?key=".$_GET["key"]));
+header ("Location: ".mergeGetUrlData($_GET, "seller-info.php?key=".$_POST["key"]));
 exit();
 ?>

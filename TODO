@@ -1,4 +1,11 @@
 TODO
+- features
+ * Recherche de livre
+ * Logs des transactions
+ * Compte usager pour chaque employé
+ * gestion des accès
+- sécurité
+ * filtrage des paramètres (XSS/SQL)
+ * contrôle d'accès avant modifications
 
-- Check for garbage GET fields that propagate in other pages
-- Basic check for wrong params in forms (eg empty seller id)
+
